@@ -7,9 +7,6 @@ This repository provides examples of how to use the **String** data type in Redi
 - Perform operations like increment, decrement, append, and string length retrieval.
 - Set expiration times on keys for temporary storage.
 
-## Example Commands
-You can find a detailed list of Redis String commands in the [`examples/redis_strings_example.txt`](examples/redis_strings_example.txt) file.
-
 ### Quick Examples
 ```plaintext
 # Set and Get a key-value pair
