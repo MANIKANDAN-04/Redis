@@ -1,0 +1,33 @@
+# Redis Lists Examples
+
+# 1. Push elements to the left of the list (LPUSH)
+LPUSH mylist "value1" "value2" "value3"
+# List becomes ["value3", "value2", "value1"]
+
+# 2. Push elements to the right of the list (RPUSH)
+RPUSH mylist "value4" "value5"
+# List becomes ["value3", "value2", "value1", "value4", "value5"]
+
+# 3. Pop an element from the left of the list (LPOP)
+LPOP mylist  # Removes "value3" and returns it
+
+# 4. Pop an element from the right of the list (RPOP)
+RPOP mylist  # Removes "value5" and returns it
+
+# 5. Get the length of the list
+LLEN mylist  # Returns 3 (list contains ["value2", "value1", "value4"])
+
+# 6. Get a range of elements from the list (LRANGE)
+LRANGE mylist 0 -1  # Returns ["value2", "value1", "value4"]
+
+# 7. Set a value at a specific index in the list (LSET)
+LSET mylist 1 "new_value"  # Updates "value1" to "new_value"
+
+# 8. Insert an element before or after another element in the list (LINSERT)
+LINSERT mylist "before" "value4" "new_item"  # Inserts "new_item" before "value4"
+
+# 9. Remove elements from the list (LREM)
+LREM mylist 1 "value2"  # Removes one occurrence of "value2" from the list
+
+# 10. Trim the list to a specified range (LTRIM)
+LTRIM mylist 0 1  # Keeps only the first two elements in the list
