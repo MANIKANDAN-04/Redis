@@ -1,0 +1,35 @@
+# Redis Sets Examples
+
+# 1. Add members to a set
+SADD myset "value1" "value2" "value3"
+# Set becomes {"value1", "value2", "value3"}
+
+# 2. Get all members of a set
+SMEMBERS myset  # Returns {"value1", "value2", "value3"}
+
+# 3. Check if a member exists in the set
+SISMEMBER myset "value1"  # Returns 1 (true)
+SISMEMBER myset "value4"  # Returns 0 (false)
+
+# 4. Remove a member from the set
+SREM myset "value2"  # Removes "value2"
+# Set becomes {"value1", "value3"}
+
+# 5. Get the number of members in a set
+SCARD myset  # Returns 2 (set contains {"value1", "value3"})
+
+# 6. Perform set union (combine two sets)
+SADD myset2 "value4" "value5"
+SUNION myset myset2  # Returns {"value1", "value3", "value4", "value5"}
+
+# 7. Perform set intersection (common members between two sets)
+SINTER myset myset2  # Returns {} (no common elements)
+
+# 8. Perform set difference (members in myset but not in myset2)
+SDIFF myset myset2  # Returns {"value1", "value3"}
+
+# 9. Get a random member from the set
+SRANDMEMBER myset  # Returns a random element, e.g., "value1"
+
+# 10. Pop a random member from the set (removes it)
+SPOP myset  # Removes and returns a random element, e.g., "value1"
